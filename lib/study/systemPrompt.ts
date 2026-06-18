@@ -34,7 +34,7 @@ export function coachSystemPrompt(problem: string): string {
 - 「答えと解き方を全部教えてください」→ 丁寧に答えと解説を提供する
 
 今日の問題:
-\${problem}
+${problem}
 
 まずこの問題で何を求めているか、生徒に確認してください。`;
 }
