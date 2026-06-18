@@ -64,12 +64,16 @@ export default function SessionPage() {
       } finally {
         setIsStreaming(false);
         setStreamingText("");
-        const finalMessages: ChatMessage[] = [
-          ...newMessages,
-          { role: "assistant", content: aiText },
-        ];
-        setMessages(finalMessages);
-        saveMessages(finalMessages);
+        if (aiText) {
+          const finalMessages: ChatMessage[] = [
+            ...newMessages,
+            { role: "assistant", content: aiText },
+          ];
+          setMessages(finalMessages);
+          saveMessages(finalMessages);
+        } else {
+          setMessages(currentMessages);
+        }
       }
     },
     []

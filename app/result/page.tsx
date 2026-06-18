@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import {
   loadResult,
@@ -21,8 +21,11 @@ export default function ResultPage() {
   const [isLevelingUp, setIsLevelingUp] = useState(false);
   const [xpFloat, setXpFloat] = useState(false);
   const router = useRouter();
+  const saved = useRef(false);
 
   useEffect(() => {
+    if (saved.current) return;
+    saved.current = true;
     const evalResult = loadResult();
     const session = loadSession();
     if (!evalResult || !session) {

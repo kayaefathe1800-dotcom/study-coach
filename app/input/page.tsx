@@ -68,6 +68,7 @@ export default function InputPage() {
       }
 
       saveSession({ problem, startedAt: new Date().toISOString() });
+      setLoading(false);
       router.push("/session");
     } catch {
       setError("エラーが発生しました。もう一度試してください。");
