@@ -142,7 +142,7 @@ export default function ResultPage() {
         {/* Action Buttons */}
         <div className="space-y-2 pt-1">
           <button
-            onClick={() => router.push("/input")}
+            onClick={() => { clearSession(); router.push("/input"); }}
             className="w-full bg-gradient-to-r from-green-600 to-emerald-700
               hover:from-green-500 hover:to-emerald-600 active:scale-95
               rounded-xl py-3.5 font-bold text-white transition shadow"

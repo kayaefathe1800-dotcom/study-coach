@@ -117,6 +117,7 @@ export default function SessionPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages, problem, mode: "evaluate", hintCount }),
       });
+      if (!res.ok) throw new Error("evaluate failed");
       const result = await res.json();
       saveResult(result);
       router.push("/result");
